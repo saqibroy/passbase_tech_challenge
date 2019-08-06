@@ -1,0 +1,22 @@
+
+<h1>Transaction</h1>
+<div class="transactions__user">
+  Default Currency: <%= current_user.currency %>
+  Balances:
+  USD: <%= current_user.usd_balance %>
+  EUR: <%= current_user.eur_balance %>
+  GDP: <%= current_user.gdp_balance %>
+</div>
+<%= link_to 'New Transaction', new_transaction_path %>
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+<% else %>
+  <%= link_to('Login', new_user_session_path) %>
+<% end %>
+
+<%= render partial:'transactions_table', :locals => { transactions: current_user.sent_transactions, table_caption: 'Money Sent' } %>
+<%= render partial:'transactions_table', :locals => { transactions: current_user.received_transactions, table_caption: 'Money Received' } %>
+
+<br>
+
+

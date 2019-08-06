@@ -1,0 +1,37 @@
+<%= form_for(transaction, url: create_transaction_path) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label 'select user' %>
+    <%= form.collection_select :recipient_id, User.all_except(current_user), :id, :name, prompt: "Please Select" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.select :currency, Transaction.currencies.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :target_currency %>
+    <%= form.select :target_currency, Transaction.currencies.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

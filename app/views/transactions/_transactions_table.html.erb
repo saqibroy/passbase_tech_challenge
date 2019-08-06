@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <caption><%= table_caption %></caption>
+    <tr>
+      <th>ID</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Currency</th>
+      <th>Value</th>
+      <th>Converted Value</th>
+      <th>Target Currency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.sender.name %></td>
+        <td><%= transaction.recipient.name %></td>
+        <td><%= transaction.currency %></td>
+        <td><%= transaction.value %></td>
+        <td><%= transaction.converted_value %></td>
+        <td><%= transaction.target_currency %></td>
+        <% if transaction.status? %>
+          <td> Succeded </td>
+        <% elsif transaction.status.nil? %>
+          <td> Processing </td>
+        <% else %>
+          <td> Failed </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
