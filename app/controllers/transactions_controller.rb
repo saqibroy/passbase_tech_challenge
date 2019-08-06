@@ -20,7 +20,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-      	TransactionsJob.perform_now(@transaction)
+      	TransactionsJob.perform_later(@transaction)
         format.html { redirect_to root_path, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
