@@ -5,8 +5,8 @@ Implementation of simple webapp using Ruby on Rails
 ## Installation
 
 1. Clone the repository
-```2. bash
-bundle
+``` bash
+2. bundle
 ```
 3. add .env file with DATABASE_USERNAME and DATABASE_PASSWORD variables
 ```bash
