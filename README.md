@@ -5,25 +5,28 @@ Implementation of simple webapp using Ruby on Rails
 ## Installation
 
 1. Clone the repository
-
+```2. bash
+bundle
+```
+3. add .env file with DATABASE_USERNAME and DATABASE_PASSWORD variables
 ```bash
-pip install foobar
+4. rake db:setup
+5. rake db:migrate
+6. rake db:seed
+7. rails s
 ```
 
 ## Usage
 
-```python
-import foobar
+1. On development go to http://localhost:3000
+2. Signin/Signup
+3. Welcome to dashboard
+4. You see received and sent transactions
+5. Make new transactions by clicking on new transaction button
+6. Logout
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Devloped by
+Saqib Sohail
+sohail.cpp@gmail.com
 
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
