@@ -15,7 +15,6 @@ A secure web application for transferring virtual currencies (USD, EUR, GBP) bet
 - Rails 5.2
 - PostgreSQL
 
-\`\`\`bash
 # Clone repository
 git clone https://github.com/yourusername/currency-transfer-app.git
 cd currency-transfer-app
